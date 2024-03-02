@@ -8,8 +8,7 @@ namespace ServiceLayer.BookServices.QueryObjects
 {
     public static class BookListDtoSelect
     {
-        public static IQueryable<BookListDto> //#A
-            MapBookToDto(this IQueryable<Book> books) //#A
+        public static IQueryable<BookListDto> MapBookToDto(this IQueryable<Book> books) //#A
         {
             return books.Select(book => new BookListDto
             {
@@ -37,15 +36,23 @@ namespace ServiceLayer.BookServices.QueryObjects
             });
         }
 
-        /*********************************************************
-        #A This method takes in IQueryable<Book> and returns IQueryable<BookListDto>
+		/*********************************************************
+		#A This method takes in IQueryable<Book> and returns IQueryable<BookListDto>
+        #A Принимает IQueryable<Book> и возвращает IQueryable<BookListDto>
         #B These are simple copies of existing columns in the Books table
-        #C This calculates the selling price, which is the normal price, or the promotion price if that relationship exists 
+        #B Простые копии существующих столбцов в таблице Book
+        #C This calculates the selling price, which is the normal price, or the promotion price if that relationship exists
+        #C Вычисляет обычную цену или цену по рекламной акции, если такая связь существует
         #D The PromotionalText depends on whether a PriceOffer exists for this book
+        #D PromotionalText зависит от того, есть ли PriceOffer для этой книги
         #E This obtains an array of Authors' names, in the right order. We are using a Client vs. Server evaluation as we want the author's names combined into one string
+        #E Получает массив имен авторов в правильном порядке. Мы используем вычисления на стороне клиента, потому что хотим, чтобы имена авторов были объеденены в одну строку.
         #F We need to calculate how many reviews there are
+        #F Нужно рассчитать количество отзывов
         #G To get EF Core to turn the LINQ average into the SQL AVG command I need to cast the NumStars to (double?)
+        #G Чтобы EF Core превратил Average в SQL-команду AVG, нужно преобразовать NumStars в (double?)
         #H Array of Tag names (categories) for this book
+        #H Строка массива тегов (категорий) для этой книги
         * *******************************************************/
-    }
+	}
 }

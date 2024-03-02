@@ -36,13 +36,20 @@ namespace ServiceLayer.BookServices.Concrete
         }
     }
 
-    /*********************************************************
+	/*********************************************************
     #A This starts by selecting the Books property in the Application's DbContext 
+    #A Начинает с выбора свойства Books в DbContext приложения
     #B Because this is a read-only query I add .AsNoTracking(). It makes the query faster
+    #B Поскольку этот запрос с доступом только на чтения, добавляем метод .AsNoTracking(). Это сделает запрос быстрее
     #C It then uses the Select query object which will pick out/calculate the data it needs
+    #C Использует объект запроса выбора, который выбирает/вычисляет нужные ему данные
     #D It then adds the commands to order the data using the given options
+    #D Добавляет команды для упорядочивания данных с использованием заданных параметров
     #E Then it adds the commands to filter the data
+    #E Добавляет команды для фильтрации данных
     #F This stage sets up the number of pages and also makes sure PageNum is in the right range
+    #F На этом этапе настраивается количество страниц и проверяется, что PageNum находится в правильном диапазоне.
     #G Finally it applies the paging commands
+    #G Применяет команды разбиения на страницы
         * *****************************************************/
 }

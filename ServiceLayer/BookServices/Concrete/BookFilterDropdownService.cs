@@ -61,15 +61,21 @@ namespace ServiceLayer.BookServices.Concrete
                         });
 
                     return result;
-                /*****************************************************************
+				/*****************************************************************
                 #A Today's date so we can filer out books that haven't be published yet
+                #A Загружает книги, отфильтровывая будущие книги; 
                 #B This long command gets the year of publication by filters out the future books, select the date and uses distinct to only have one of each year
+                #B Затем выбирает годы, когда эти книги были опубликованы. Метод Distinct убирает дубликаты из списка годов публикации
                 #C Orders the years, with newest year at the top
+                #C Упорядочение по годам, наверху - самый последний год
                 #D I finally use two client/server evaluations to turn the values into strings
+                #D Наконец, я использую два вычисления на стороне клиента, чтобы преобразовать значения в строки
                 #E This returns true if there is a book in the list that is not yet published
+                #E Возвращает true, если книга из списка ещё не опубликована
                 #F Finally I add a "coming soon" filter for all the future books
+                #F Добавляет фильтр "готовится к выходу" для всех будущих книг
                  * ***************************************************************/
-                default:
+				default:
                     throw new ArgumentOutOfRangeException(nameof(filterBy), filterBy, null);
             }
         }

@@ -54,14 +54,22 @@ namespace ServiceLayer.BookServices.QueryObjects
             }
         }
 
-        /***************************************************************
+		/***************************************************************
         #A The method is given both the type of filter and the user selected filter value
+        #A В метод передается тип фильтра и значение фильтра, выбранное пользователем
         #B If the filter value isn't set then it returns the IQueryable with no change
+        #B Если значение фильтра не задано, возвращаем IQueryable без изменений
         #C Same for no filter selected - it returns the IQueryable with no change
+        #C Если фильтр не выбран, возвращаем IQueryable без изменений
         #D The filter by votes is a value and above, e.g. 3 and above. Note: not reviews returns null, and the test is always false
+        #D Фильтр по голосам возвращает только книги со средней оценкой выше значения filterVote. Если на книгу нет отзывов, то свойство ReviewsAverageVotes будет иметь
+        #D значение null, а проверка всегда возвращать false.
         #E This will select any books that have a Tag category that matches the filterValue
+        #E Выбирает любые книги с категорией Tag, соответствующей filterValue
         #F If the "coming soon" was picked then we only return books not yet published
+        #F Если был выбран вариант "Готовится к выходу", возвращаются только те книги, которые ещё не опубликованы
         #G If we have a specific year we filter on that. Note that we also remove future books (in case the user chose this year's date)
+        #G Если у нас есть конкретный год, то фильтруем по нему. Обратите внимание, что мы так же удаляем будущие книги (если пользователь выбрал дату в этом году).
          * ************************************************************/
-    }
+	}
 }

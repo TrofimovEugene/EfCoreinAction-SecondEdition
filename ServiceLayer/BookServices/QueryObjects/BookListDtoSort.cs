@@ -46,9 +46,13 @@ namespace ServiceLayer.BookServices.QueryObjects
 
         /************************************************************
         #A Because of paging we always need to sort. I default to showing latest entries first
+        #A Из-за разбиения на страницы всегда нужно выполнить сортировку. По умолчанию сортировка выполняется по первичному ключу. Это делается быстро.
         #B This orders the book by votes. Books without any votes (null return) go at the bottom
+        #B Упорядочение книг в зависимости от голосов. Книг, у которых нет голосов (возвращается null) идут внизу.
         #C Order by publication date - latest books at the top
+        #C Упорядочивание книг по дате публикации, вверху - самые свежие книги.
         #D Order by actual price, which takes into account any promotional price - both lowest first and highest first
+        #D Упорядочение книг по актуальной цене с учетом рекламной цены (по возврастанию и по убыванию цены)
          * ********************************************************/
     }
 }
